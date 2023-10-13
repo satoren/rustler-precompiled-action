@@ -86,7 +86,7 @@ runs:
 
     - name: Download cross from GitHub releases
       uses: giantswarm/install-binary-action@v1.1.0
-      if: ${{ inputs.use-cross && inputs.cross-version != "latest" }}
+      if: ${{ inputs.use-cross && inputs.cross-version != 'latest' }}
       with:
         binary: "cross"
         version: ${{ inputs.cross-version }}
@@ -95,7 +95,7 @@ runs:
         smoke_test: "${binary} --version"
 
     - name: Download cross from GitHub repository
-      if: ${{ inputs.use-cross && inputs.cross-version == "latest" }}
+      if: ${{ inputs.use-cross && inputs.cross-version == 'latest' }}
       shell: bash
       run:
         cargo install cross --git https://github.com/cross-rs/cross
